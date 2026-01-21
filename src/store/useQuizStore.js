@@ -1,11 +1,17 @@
 import { create } from 'zustand';
 
 export const useQuizStore = create((set) => ({
-  step: 'welcome', // 'welcome' | 'quiz' | 'report'
+  step: 'welcome',
   currentIndex: 0,
-  answers: [], // Stores { category, score }
+  answers: [],
+  aiReport: '', // Stores the final AI text
+  isGenerating: false, // Loading state
 
   setStep: (step) => set({ step }),
+  
+  setAIReport: (report) => set({ aiReport: report, isGenerating: false }),
+  
+  setIsGenerating: (loading) => set({ isGenerating: loading }),
 
   addAnswer: (category, score) => set((state) => ({
     answers: [...state.answers, { category, score }],
@@ -15,6 +21,8 @@ export const useQuizStore = create((set) => ({
   resetQuiz: () => set({ 
     step: 'welcome', 
     currentIndex: 0, 
-    answers: [] 
+    answers: [],
+    aiReport: '',
+    isGenerating: false
   }),
 }));
