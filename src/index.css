@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lavender: #f3e8ff;   /* Pale Purple */
+  --color-soft-white: #ffffff;
+  --color-silver: #f9fafb;     /* Light Gray */
+  --color-deep-purple: #6b21a8; /* For text/contrast */
+}
+
+body {
+  @apply bg-soft-white text-slate-900 antialiased;
+}
